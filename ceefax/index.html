@@ -7,20 +7,23 @@
 </head>
 <body>
   <center>
-    <div id="title">Ceefax.js</div>
+    <div id="title"><a href="http://www.github.com/MattRyder/ceefax.js" style="text-decoration:none">Ceefax.js</a></div>
     <div id="subtitle">The Red Button is not a valid substitute!</div>
     <canvas id="myCanvas" width="640" height="480"> <p>Come back when you've got a HTML5 enabled browser, buddy!</p> </canvas>
-    <div class="text">Press the numeric keys to change page (100 - 108, for this demo)</div>
+    <div class="text">Use the numeric keys to change page (BetaSignal returns ~115, so 000-115 for this demo)</div>
   </center>
 
   <script>
 
-  //cheaply skirt the allow-origin issue
-  $.getJSON('testdata.json', function( data ) {
-    $.each(data, function(i, a) {
-      Ceefax.Pages.push(new CeefaxPage(a.page, a.category, a.headline, a.article));
+  /* LIVE TEST DATA FROM NEWS FEED */
+  // Use BetaSignal to grab some test data:
+  $.getJSON('http://betasignal.com/api/1.0/json/clusters_callback.js?callback=?', {});
+
+  var betasignal_clusters = function( jsonData ) {
+    $.each(jsonData, function(i, article) {
+      Ceefax.Pages.push(new CeefaxPage(i, article.source, article.title, article.summary));
     });
-  });
+  }
 
   Ceefax.run("myCanvas", 1000/30, 100);
   </script>
