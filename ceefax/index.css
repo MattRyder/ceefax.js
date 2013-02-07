@@ -35,3 +35,10 @@ canvas {
 	font-family: stdTeletextFont;
 	color: #FFF;
 }
+
+.text {
+	margin-top: 20px;
+	font-size: 1.0em;
+	font-family: stdTeletextFont;
+	color: #FFF;
+}
