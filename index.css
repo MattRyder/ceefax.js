@@ -35,3 +35,9 @@ canvas {
 	font-family: stdTeletextFont;
 	color: #FFF;
 }
+
+.text {
+	font-size: 1.0em;
+	font-family: stdTeletextFont;
+	color: #FFF;
+}

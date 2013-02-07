@@ -179,7 +179,7 @@
           measure = context.measureText(lastPhrase + word).width;
 
           if(measure < len) {
-            lastPhrase += (lastPhrase.length === 0) ? word : ' ' + word;
+            lastPhrase += (lastPhrase.length == 0) ? word : ' ' + word;
           } else {
             phraseArray.push(lastPhrase);
             lastPhrase = word;
@@ -191,7 +191,7 @@
             phraseArray.push('');
           }
 
-          if(i === wordArray.length - 1) {
+          if(i == wordArray.length - 1) {
             phraseArray.push(lastPhrase);
             break;
           }
@@ -231,7 +231,7 @@
         context.font = fontSize + 'px stdTeletextFont';
         drawRect(bounds.x, navY, navW, navH, '#00F');
 
-        if(Pages.length === 0) return;
+        if(Pages.length == 0) return;
 
         drawText(summariseString(Pages[nextPageIndex].headline, navW * 0.75), navX, navY + fontSize, '#FFF');
         drawText(nextPageText, navW - context.measureText(nextPageText).width, navY + fontSize, '#FFF');
@@ -287,7 +287,7 @@
 
         // Try to locate the page requested:
         for(i = 0; i < Pages.length; i++) {
-          if(Pages[i].page === requestedPageNumber) {
+          if(Pages[i].page == requestedPageNumber) {
             pageIndex = i;
             currentPage = Pages[pageIndex];
             break;
