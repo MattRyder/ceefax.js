@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+	<title>BBC Ceefax in HTML5</title>
+	<link rel="stylesheet" type="text/css" href="index.css" />
+  <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+  <script src="ceefax.js"></script>
+</head>
+<body>
+  <center>
+    <div id="title">Ceefax.js</div>
+    <div id="subtitle">The Red Button is not a valid substitute!</div>
+    <canvas id="myCanvas" width="640" height="480"> <p>Come back when you've got a HTML5 enabled browser, buddy!</p> </canvas>
+  </center>
+
+  <script>
+
+  /* LIVE TEST DATA FROM NEWS FEED 
+  // Use BetaSignal to grab some test data:
+  $.getJSON('http://betasignal.com/api/1.0/json/clusters_callback.js?callback=?', {});
+
+  var betasignal_clusters = function( jsonData ) {
+    $.each(jsonData, function(i, article) {
+      Ceefax.Pages.push(new CeefaxPage(i, article.source, article.title, article.summary));
+    });
+  }*/
+
+  $.getJSON('testdata.json', function( data ) {
+    $.each(data, function(i, a) {
+      Ceefax.Pages.push(new CeefaxPage(a.page, a.category, a.headline, a.article));
+    });
+  });
+
+  Ceefax.run("myCanvas", 1000/30, 100);
+  </script>
+</body>
