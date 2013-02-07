@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Ceefax.js : A BBC Ceefax terminal/emulator in HTML5 &amp; Javascript" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Ceefax.js</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/MattRyder/ceefax.js">View on GitHub</a>
+
+          <h1 id="project_title">Ceefax.js</h1>
+          <h2 id="project_tagline">A BBC Ceefax terminal/emulator in HTML5 &amp; Javascript</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/MattRyder/ceefax.js/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/MattRyder/ceefax.js/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>ceefax.js</h1>
+
+<p><em>A BBC Ceefax terminal/emulator in HTML5 &amp; Javascript</em></p>
+
+<hr><p>ceefax.js is a reproduction of the original TV-based teletext system, developed by the BBC.  </p>
+
+<h2>Features</h2>
+
+<ul>
+<li>Embeddable into most web pages.</li>
+<li>Works in any HTML5 based browser, that supports the <code>&lt;canvas&gt;</code> element.</li>
+<li>Fully customisable, pages are loaded via JSON!</li>
+<li>Pages can be looked up by typing their page numbers.</li>
+</ul><h2>So how do I use this?</h2>
+
+<p>Fortunately enough, ceefax.js can be up and running with a few lines of Javascript!<br>
+(...and a couple lines of CSS, if you really want to impress!)</p>
+
+<pre><code>// Load the data from JSON, for our personalised BBC News feed:
+$.getJSON('testdata.json', function( data ) {
+  $.each(data, function(i, a) {
+    Ceefax.Pages.push(new CeefaxPage(a.page, a.category, a.headline, a.article));
+  });
+});
+
+// Now tell ceefax.js where to find canvas, and how often to update:
+Ceefax.run("myCanvas", 1000/30);
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Ceefax.js maintained by <a href="https://github.com/MattRyder">MattRyder</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
