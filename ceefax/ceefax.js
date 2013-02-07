@@ -287,7 +287,7 @@
 
         // Try to locate the page requested:
         for(i = 0; i < Pages.length; i++) {
-          if(Pages[i].page === requestedPageNumber) {
+          if(Pages[i].page == requestedPageNumber) {
             pageIndex = i;
             currentPage = Pages[pageIndex];
             break;
